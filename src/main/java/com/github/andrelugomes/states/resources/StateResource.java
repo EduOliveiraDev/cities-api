@@ -2,6 +2,7 @@ package com.github.andrelugomes.states.resources;
 
 import com.github.andrelugomes.states.entities.State;
 import com.github.andrelugomes.states.repositories.StateRepository;
+import org.springdoc.api.annotations.ParameterObject;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +20,7 @@ public class StateResource {
   }
 
   @GetMapping
-  public Page<State> states(final Pageable page) {
+  public Page<State> states(@ParameterObject final Pageable page) {
     return repository.findAll(page);
   }
 }

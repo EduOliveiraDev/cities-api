@@ -2,6 +2,7 @@ package com.github.andrelugomes.countries.resources;
 
 import com.github.andrelugomes.countries.entities.Country;
 import com.github.andrelugomes.countries.repositories.CountryRepository;
+import org.springdoc.api.annotations.ParameterObject;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +18,7 @@ public class CountryResource {
   }
 
   @GetMapping("/countries")
-  public Page<Country> cities(final Pageable page) {
+  public Page<Country> cities(@ParameterObject final Pageable page) {
 
     return repository.findAll(page);
   }
